@@ -12,12 +12,12 @@ Lab 2 is a project of composing multiple web services into one (like `pipes` in 
 
 We gave a group presentation on this paper:
 
->>> Jagdeep Singh, Suhib Younis Bani Melhem, Roch H. Glitho, Fatna Belqasmi, "SOAP-Based vs. RESTful Web Services: A Case Study for Multimedia Conferencing", IEEE Internet Computing, vol. 16, no. , pp. 54-63, July-Aug. 2012, doi:10.1109/MIC.2012.62 
+> Jagdeep Singh, Suhib Younis Bani Melhem, Roch H. Glitho, Fatna Belqasmi, "SOAP-Based vs. RESTful Web Services: A Case Study for Multimedia Conferencing", IEEE Internet Computing, vol. 16, no. , pp. 54-63, July-Aug. 2012, doi:10.1109/MIC.2012.62 
 
 ## Photos
 
 We really had a wonderful time together in this mini-course. At the end of the course, we were awarded some books according to our performances in the presentations. I would love to keep some nice pictures here.
 
-![Prof. Sheng and me](photos/Separate.JPG)
+![Prof. Sheng and me](Photos/Separate.JPG)
 
-![The whole class](photos/All.JPG)
+![The whole class](Photos/All.JPG)
