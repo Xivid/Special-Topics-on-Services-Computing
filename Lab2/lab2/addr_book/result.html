@@ -1,0 +1,39 @@
+<html>
+	<head>
+		{% load staticfiles %}
+		<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
+		<title>搜索结果 - 通讯录</title>
+	</head>
+	<body>
+	<div id="logo"><a href="/"><img src="{% static 'logo.png' %}" alt="logo" /></a>&nbsp;|&nbsp;&nbsp;搜索结果</div>
+	<hr />
+	<table id="peoplelist">
+		<tr>
+		<th colspan=13>找到{{ result_len }}条记录。</td>
+		</tr>
+		{% if result_len > 0 %}
+			<tr>
+				<th>编号</th><th>姓名</th><th>微博账号</th><th>人人账号</th><th>地址</th><th colspan=2>操作</th>
+			</tr>
+			{% for f in result_list %}
+			<tr {% if forloop.counter|divisibleby:"2" %} class="alt" {% endif %}>
+				<td>{{ forloop.counter }}</td>
+				<td>{{ f.name }}</td>
+				<td>{{ f.qq }}</td>
+				<td>{{ f.renren }}</td>
+				<td>{{ f.address }}</td>
+				<td><a href="/delete/?id={{f.id}}">删除</a></td>
+				<td><a href="/update/?id={{f.id}}">更新</a></td>
+			</tr>
+			{% endfor %}
+		{% endif %}
+		
+	</table>
+	<div id="singlebutton">
+		<font size = 5><a href="/">返回</a></font> 
+	</div>
+	<hr /><div id="footer">
+	Copyright 2013-2014 杨志飞<br />哈尔滨工业大学 计算机科学试验班<br />Powered by <a href="http://www.djangoproject.com" target="_blank"><img src="{% static 'django.gif' %}" alt="Django Project" width=40 height=15 /></a>
+</div>
+</body>
+</html>

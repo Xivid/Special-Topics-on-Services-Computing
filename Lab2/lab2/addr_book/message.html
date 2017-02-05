@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!-- 这个网页专用于显示一些简单信息。 -->
+<html>
+<head>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
+	<title>{{title}}</title>
+</head>
+<body>
+<div id="logo"><a href="/"><img src="{% static 'logo.png' %}" alt="logo" /></a>&nbsp;|&nbsp;&nbsp;提示</div>
+<hr />
+	<p>
+	<h1 class="message">{{ message }}</h1>
+	</p>
+	<div id="singlebutton">
+	<a href="{{ url }}">{{ urltext }}</a>
+	</div>
+	<hr /><div id="footer">个人通讯录<br />
+	Copyright 2013-2014 杨志飞<br />哈尔滨工业大学 计算机科学试验班<br />Powered by <a href="http://www.djangoproject.com" target="_blank"><img src="{% static 'django.gif' %}" alt="Django Project" width=40 height=15 /></a>
+</div>
+</body>
+</html>

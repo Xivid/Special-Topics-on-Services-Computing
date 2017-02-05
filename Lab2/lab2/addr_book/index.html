@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
+	<title>通讯录</title>
+{% load staticfiles %}
+</head>
+<body>
+<!-- header begin -->
+<div id="logo"><img src="{% static "logo.png" %}" alt="logo" /></div>
+<hr />
+<!-- header end -->
+<!-- sidebar begin -->
+<div id="sidebar">
+	<div class="widget">
+	<form action="/search/" method="post">
+		<div class="title">搜索朋友</div>
+		<input class="text" type="text" name="word" value="请输入姓名" onfocus="if(value=='请输入姓名') {value=''}" onblur="if(value=='') {value='请输入姓名'}">
+		<div class="reminder"><input type="radio" name="mode" value="1" checked=checked />模糊搜索<input type="radio" name="mode" value="2" />精确搜索<br />提示：模糊搜索，输入部分或全部姓名，不区分大小写；精确搜索，按精确姓名查找朋友。</div>
+		<input type="submit" value="搜索" class="submit">
+	</form>
+	</div>
+	
+	<div class="widget">
+		<div class="title">用户信息</div>
+		<div class="username">当前用户：{{username}}</div>
+		<div class="username">朋友：{{count}}人</div>
+		<div id="widgetuserurl"><a href="/accounts/changepassword/">修改密码</a>
+		<a href="/accounts/logout/">点此登出</a></div>
+	</div>
+	
+</div>
+<!-- sidebar end -->
+<div id="content">
+<div id="singlebutton">
+	<a href="/add/">添加新朋友</a>
+</div>
+{% if count > 0 %}
+<table id="peoplelist">
+	<tr>
+		<th>编号</th><th>姓名</th><th>微博账号</th><th>人人账号</th><th>地址</th><th colspan=2>操作</th>
+	</tr>
+	{% for f in friend_list %}
+	<tr {% if forloop.counter|divisibleby:"2" %} class="alt" {% endif %}>
+		<td>{{ forloop.counter }}</td>
+		<td>{{ f.name }}</td>
+		<td>{{ f.qq }}</td>
+		<td>{{ f.renren }}</td>
+		<td><a href="/showmap/?id={{f.id}}" target="_blank">{{ f.address }}</a></td>
+		<td><a href="/delete/?id={{f.id}}">删除</a></td>
+		<td><a href="/update/?id={{f.id}}">更新</a></td>
+	</tr>
+	{% endfor %}
+</table>
+{% endif %}
+</div>
+<div id="footer"><hr />
+	Copyright 2013-2014 杨志飞<br />哈尔滨工业大学 计算机科学试验班<br />Powered by <a href="http://www.djangoproject.com" target="_blank"><img src="{% static 'django.gif' %}" alt="Django Project" width=40 height=15 /></a>
+</div>
+</body>
+</html>

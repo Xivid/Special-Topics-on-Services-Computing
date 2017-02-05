@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
+<title>登出 - 通讯录</title>
+<meta http-equiv="refresh" content="3;url=/"> <!-- 三秒后自动跳转到根目录-->
+</head>
+<body>
+<div id="logo"><a href="/"><img src="{% static 'logo.png' %}" alt="logo" /></a>&nbsp;|&nbsp;&nbsp;登出</div>
+<hr />
+ <h1 class="message">成功登出……3s后自动返回首页</h1>
+  <div id="userurls">
+  <a href="/accounts/login/">再次登录</a>
+  <a href="/">点此返回首页</a>
+  </div>
+  <hr /><div id="footer">
+	Copyright 2013-2014 杨志飞<br />哈尔滨工业大学 计算机科学试验班<br />Powered by <a href="http://www.djangoproject.com" target="_blank"><img src="{% static 'django.gif' %}" alt="Django Project" width=40 height=15 /></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
+		<title>更新记录 - 通讯录</title>
+	</head>
+	<body>
+	<div id="logo"><a href="/"><img src="{% static 'logo.png' %}" alt="logo" /></a>&nbsp;|&nbsp;&nbsp;更新朋友</div>
+		<form method="post" onsubmit="alert('修改成功')">
+		
+			<input name="id" type="hidden" value="{{ p.id }}">
+			<table id="personform">
+				<tr>
+					<th>项目</th><th>填写信息</th>
+				</tr>
+				<tr>
+					<td>姓名</td><td><input name="name" type="text" value="{{p.name}}"class="text"></td>
+				</tr>
+				<tr class="alt">
+					<td>微博账号</td><td><input name="qq" type="text" value="{{p.qq}}" class="text"></td>
+				</tr>
+				<tr>
+					<td>人人账号</td><td><input name="renren" type="text" value="{{p.renren}}"
+					 class="text"></td>
+				</tr>
+				<tr class="alt">
+					<td>地址</td><td><input name="address" type="text" value="{{p.address}}" class="text"></td>
+				</tr>
+				<tr>
+					<td colspan = 2 align="center"><input type="submit" value="保存" class="button"><input type="reset" value="重填" class="button"></td>
+				</tr>
+			</table>
+		</form>
+	<div id="singlebutton">
+		<a href="/">返回通讯录</a>
+	</div>
+	<div id="footer">
+	Copyright 2013-2014 杨志飞<br />哈尔滨工业大学 计算机科学试验班<br />Powered by <a href="http://www.djangoproject.com" target="_blank"><img src="{% static 'django.gif' %}" alt="Django Project" width=40 height=15 /></a>
+</div>
+</body>
+</html>

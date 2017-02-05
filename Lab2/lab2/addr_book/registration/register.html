@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
+	<title>用户注册 - 通讯录</title>
+	{% if success %}
+	<meta http-equiv = "refresh" content="1;url=/">
+	{% endif %}
+</head>
+<body>
+  <div id="logo"><a href="/"><img src="{% static 'logo.png' %}" alt="logo" /></a>&nbsp;|&nbsp;&nbsp;注册新用户</div>
+  <form action="" method="post">
+  {% csrf_token %}
+  <div class="regform">
+  <table border = 0>
+    <tr>
+	<td>用户名：</td>
+    <td><input type="text" name="username" value="" id="username"></td>
+	<td class="info">不多于30个半角字符。只支持汉字、汉字标点、字母、数字和"@ . +  _"四个特殊符号。</td>
+	</tr>
+	<tr>
+    <td>密码：</td>
+    <td><input type="password" name="password1" value="" id="password1"></td>
+	<td class="info">安全起见，请不要设置过于简单的密码（111, 123, 123456, aaa等）。</td>
+	</tr>
+	<tr>
+    <td>再次输入密码：</td>
+    <td><input type="password" name="password2" value="" id="password2"></td>
+	<td class="info">输入与上一项相同的密码。</td>
+	</tr>
+	<tr>
+    <td>电子邮箱：</td>
+    <td><input type="text" name="email" value="" id="email"></td>
+	<td class="info">请填写您的常用邮箱。</td>
+	</tr>
+	  {% if success %}
+	  <tr><td colspan=3 class="msg">
+	  注册成功！即将自动返回首页……
+	  </td></tr>
+	  {% endif %}
+	  {% if empty %}
+	  <tr><td colspan=3 class="msg">
+	  请填完所有信息！
+	  </td></tr>
+	  {% endif %}
+	  {% if invalidname %}
+	  <tr><td colspan=3 class="msg">
+	  用户名已存在！请换一个用户名来注册。
+	  </td></tr>
+	  {% endif %}
+	  {% if invalidpass %}
+	  <tr><td colspan=3 class="msg">
+	  两次输入的密码不匹配！
+	  </td></tr>
+	  {% endif %}
+	<tr><td colspan=3 class="control">
+    <input type="submit" value="注册" />
+	<input type="reset" value="重置" />
+	</td>
+	</tr>
+  </table>
+  </div>
+  </form>
+  
+ <div id="userurls">
+ <a href="/accounts/login/">返回登陆</a>
+ <a href="/">返回首页</a>
+ </div>
+ 	<hr /><div id="footer">
+	Copyright 2013-2014 杨志飞<br />哈尔滨工业大学 计算机科学试验班<br />Powered by <a href="http://www.djangoproject.com" target="_blank"><img src="{% static 'django.gif' %}" alt="Django Project" width=40 height=15 /></a>
+</div>
+</body>
+</html>

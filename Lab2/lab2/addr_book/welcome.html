@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>通讯录</title>
+<meta property="wb:webmaster" content="cce67171bba1dafd" />
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
+</head>
+
+<body>
+<div id="logo"><a href="/"><img src="{% static 'logo.png' %}" alt="logo" /></a></div>
+<hr />
+<div id="recommendation">
+我的圈子我做主！
+</div>
+<div id="userurls">
+<a href="/accounts/login/">点此登录</a>
+<a href="/accounts/register/">注册新用户</a>
+</div>
+<hr />
+
+<div id="footer">
+	Copyright 2013-2014 杨志飞<br />哈尔滨工业大学 计算机科学试验班<br />Powered by <a href="http://www.djangoproject.com" target="_blank"><img src="{% static 'django.gif' %}" alt="Django Project" width=40 height=15 /></a>
+</div>
+</body>
+</html>
